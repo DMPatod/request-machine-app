@@ -2,8 +2,9 @@ import { useDrop, XYCoord } from "react-dnd";
 import { BlockItem, ItemType } from "../constants";
 import { useCallback, useState } from "react";
 import useImmutability from "immutability-helper";
-import { Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import Block from "./Block";
+import Arrow from "./Arrow";
 
 const snapToGrid = (x: number, y: number) => {
   const snappedX = Math.round(x / 32) * 32;
@@ -13,8 +14,8 @@ const snapToGrid = (x: number, y: number) => {
 
 const Board: React.FC = () => {
   const [blocks, setBlocks] = useState<{ [key: string]: BlockItem }>({
-    First: { type: ItemType.BLOCK, id: "First", top: 0, left: 0 },
-    Name: { type: ItemType.BLOCK, id: "Name", top: 15, left: 45 },
+    First: { type: ItemType.BLOCK, id: "First", top: 150, left: 50 },
+    Name: { type: ItemType.BLOCK, id: "Name", top: 100, left: 300 },
   });
 
   const moveBlock = useCallback(
@@ -42,7 +43,7 @@ const Board: React.FC = () => {
   );
 
   return drop(
-    <div>
+    <div style={{ backgroundColor: "grey" }}>
       <Container
         style={{ backgroundColor: "aqua", minHeight: 300, minWidth: 100 }}
       >
@@ -55,10 +56,12 @@ const Board: React.FC = () => {
               id={item.id}
               position={{ x: item.left, y: item.top }}
             >
-              Block
+              <Button>Select</Button>
+              <div style={{ border: "1px solid green" }}>Area</div>
             </Block>
           );
         })}
+        <Arrow id="1" start={{ x: 50, y: 150 }} end={{ x: 300, y: 100 }} />
       </Container>
     </div>
   );
