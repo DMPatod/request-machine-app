@@ -18,9 +18,20 @@ const Arrow: React.FC<ArrowProps> = ({ id, start, end }) => {
 
   const pathD = `M ${startCoord.x} ${startCoord.y} L ${endCoord.x} ${endCoord.y}`;
 
+  const arrowEndX = endCoord.x;
+  const arrowEndY = endCoord.y;
+  const arrowSize = 15;
+
+  const arrowPath = `M ${arrowEndX - arrowSize} ${
+    arrowEndY - arrowSize
+  } L ${arrowEndX} ${arrowEndY} L ${arrowEndX - arrowSize} ${
+    arrowEndY + arrowSize
+  }`;
+
   return (
     <svg ref={arrowRef} width="100%" height="100%">
       <path d={pathD} stroke="black" fill="none"></path>
+      <path d={arrowPath} fill="black"></path>
     </svg>
   );
 };

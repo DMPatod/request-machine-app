@@ -1,0 +1,25 @@
+<div
+            style={{
+              position: "absolute",
+              backgroundColor: "purple",
+              top: 25,
+              left: 25,
+              height: "fit-content",
+              width: "fit-content",
+            }}
+          >
+            <h1>A</h1>
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              backgroundColor: "purple",
+              top: 150,
+              left: 100,
+              height: "fit-content",
+              width: "fit-content",
+            }}
+          >
+            <h1>B</h1>
+          </div>
+          <BezierLine start={{ x: 25, y: 25 }} end={{ x: 100, y: 150 }} />

@@ -1,6 +1,6 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 
-const Dev: React.FC = () => {
+const UserSession: React.FC = () => {
   const { data: session } = useSession();
 
   if (session) {
@@ -22,4 +22,4 @@ const Dev: React.FC = () => {
   );
 };
 
-export default Dev;
+export default UserSession;
